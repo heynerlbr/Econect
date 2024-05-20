@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\firmarElectronicaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/facturas', [firmarElectronicaController::class, 'index'])->name('upload.form');
+Route::post('/generarFactura', [firmarElectronicaController::class, 'generarFactura'])->name('upload.file');
+
